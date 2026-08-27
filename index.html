@@ -36,7 +36,7 @@
 
             --border: rgba(255, 255, 255, 0.10);
 
-            --border-hover: rgba(84, 196, 216, 0.40);
+            --border-hover: rgba(84, 196, 216, 0.42);
 
             --text: #f5f8fa;
 
@@ -50,6 +50,8 @@
 
             --purple: #7567ff;
 
+            --purple-light: #958aff;
+
             --error: #ff6868;
 
         }
@@ -59,7 +61,9 @@
            RESET
         ===================================================== */
 
-        * {
+        *,
+        *::before,
+        *::after {
 
             box-sizing: border-box;
 
@@ -124,7 +128,7 @@
 
                 radial-gradient(
                     circle at 50% 50%,
-                    rgba(57, 143, 161, 0.04),
+                    rgba(57, 143, 161, 0.045),
                     transparent 45%
                 ),
 
@@ -145,26 +149,28 @@
 
             position: fixed;
 
-            width: 400px;
+            width: 430px;
 
-            height: 400px;
+            height: 430px;
 
             border-radius: 50%;
 
-            top: -180px;
+            top: -200px;
 
-            right: -160px;
+            right: -170px;
 
             background:
-                rgba(117, 103, 255, 0.10);
+                rgba(117, 103, 255, 0.11);
 
             filter:
-                blur(70px);
+                blur(75px);
 
             pointer-events: none;
 
             animation:
                 glowMove 9s ease-in-out infinite;
+
+            z-index: 0;
 
         }
 
@@ -175,26 +181,28 @@
 
             position: fixed;
 
-            width: 350px;
+            width: 390px;
 
-            height: 350px;
+            height: 390px;
 
             border-radius: 50%;
 
-            bottom: -180px;
+            bottom: -200px;
 
-            left: -150px;
+            left: -170px;
 
             background:
-                rgba(57, 143, 161, 0.12);
+                rgba(57, 143, 161, 0.13);
 
             filter:
-                blur(70px);
+                blur(75px);
 
             pointer-events: none;
 
             animation:
                 glowMove 11s ease-in-out infinite reverse;
+
+            z-index: 0;
 
         }
 
@@ -229,6 +237,8 @@
 
             position: relative;
 
+            z-index: 2;
+
             width: min(940px, 100%);
 
             padding: 42px;
@@ -247,7 +257,12 @@
                 1px solid var(--border);
 
             box-shadow:
-                0 35px 90px rgba(0, 0, 0, 0.48);
+
+                0 35px 90px
+                rgba(0, 0, 0, 0.48),
+
+                inset 0 1px 0
+                rgba(255, 255, 255, 0.045);
 
             backdrop-filter:
                 blur(24px);
@@ -277,9 +292,9 @@
 
             top: 0;
 
-            left: 12%;
+            left: 10%;
 
-            width: 76%;
+            width: 80%;
 
             height: 1px;
 
@@ -288,10 +303,14 @@
                 linear-gradient(
                     90deg,
                     transparent,
-                    rgba(84, 196, 216, .7),
-                    rgba(117, 103, 255, .7),
+                    rgba(84, 196, 216, .8),
+                    rgba(117, 103, 255, .8),
                     transparent
                 );
+
+            box-shadow:
+                0 0 18px
+                rgba(84,196,216,.25);
 
         }
 
@@ -306,18 +325,18 @@
 
             position: absolute;
 
-            width: 280px;
+            width: 300px;
 
-            height: 280px;
+            height: 300px;
 
-            top: -180px;
+            top: -190px;
 
-            left: -180px;
+            left: -190px;
 
             border-radius: 50%;
 
             background:
-                rgba(57, 143, 161, .07);
+                rgba(57, 143, 161, .075);
 
             filter:
                 blur(45px);
@@ -380,8 +399,6 @@
 
         .form-header h1 {
 
-            margin: 0;
-
             font-size:
                 clamp(27px, 4vw, 38px);
 
@@ -414,7 +431,7 @@
 
         .form-header p {
 
-            margin-top: 10px;
+            margin-top: 11px;
 
             color: #89979e;
 
@@ -490,65 +507,21 @@
         }
 
 
-        .field:nth-child(1) {
-            animation-delay: .05s;
-        }
-
-        .field:nth-child(2) {
-            animation-delay: .10s;
-        }
-
-        .field:nth-child(3) {
-            animation-delay: .15s;
-        }
-
-        .field:nth-child(4) {
-            animation-delay: .20s;
-        }
-
-        .field:nth-child(5) {
-            animation-delay: .25s;
-        }
-
-        .field:nth-child(6) {
-            animation-delay: .30s;
-        }
-
-        .field:nth-child(7) {
-            animation-delay: .35s;
-        }
-
-        .field:nth-child(8) {
-            animation-delay: .40s;
-        }
-
-        .field:nth-child(9) {
-            animation-delay: .45s;
-        }
-
-        .field:nth-child(10) {
-            animation-delay: .50s;
-        }
-
-        .field:nth-child(11) {
-            animation-delay: .55s;
-        }
-
-        .field:nth-child(12) {
-            animation-delay: .60s;
-        }
-
-        .field:nth-child(13) {
-            animation-delay: .65s;
-        }
-
-        .field:nth-child(14) {
-            animation-delay: .70s;
-        }
-
-        .field:nth-child(15) {
-            animation-delay: .75s;
-        }
+        .field:nth-child(1)  { animation-delay: .05s; }
+        .field:nth-child(2)  { animation-delay: .10s; }
+        .field:nth-child(3)  { animation-delay: .15s; }
+        .field:nth-child(4)  { animation-delay: .20s; }
+        .field:nth-child(5)  { animation-delay: .25s; }
+        .field:nth-child(6)  { animation-delay: .30s; }
+        .field:nth-child(7)  { animation-delay: .35s; }
+        .field:nth-child(8)  { animation-delay: .40s; }
+        .field:nth-child(9)  { animation-delay: .45s; }
+        .field:nth-child(10) { animation-delay: .50s; }
+        .field:nth-child(11) { animation-delay: .55s; }
+        .field:nth-child(12) { animation-delay: .60s; }
+        .field:nth-child(13) { animation-delay: .65s; }
+        .field:nth-child(14) { animation-delay: .70s; }
+        .field:nth-child(15) { animation-delay: .75s; }
 
 
         @keyframes fieldAppear {
@@ -699,6 +672,15 @@
             cursor:
                 pointer;
 
+            appearance:
+                none;
+
+            -webkit-appearance:
+                none;
+
+            padding-right:
+                42px;
+
         }
 
 
@@ -709,6 +691,50 @@
 
             color:
                 white;
+
+        }
+
+
+        /* =====================================================
+           SELECT ARROW
+        ===================================================== */
+
+        .select-field::after {
+
+            content:
+                "⌄";
+
+            position:
+                absolute;
+
+            right:
+                16px;
+
+            bottom:
+                12px;
+
+            color:
+                #54c4d8;
+
+            font-size:
+                18px;
+
+            font-weight:
+                600;
+
+            pointer-events:
+                none;
+
+            transition:
+                transform .25s ease;
+
+        }
+
+
+        .select-field:focus-within::after {
+
+            transform:
+                rotate(180deg);
 
         }
 
@@ -759,51 +785,7 @@
 
 
         /* =====================================================
-           CUSTOM DROPDOWN ARROW
-        ===================================================== */
-
-        .select-field::after {
-
-            content:
-                "⌄";
-
-            position:
-                absolute;
-
-            right:
-                16px;
-
-            bottom:
-                13px;
-
-            color:
-                #54c4d8;
-
-            font-size:
-                18px;
-
-            font-weight:
-                600;
-
-            pointer-events:
-                none;
-
-            transition:
-                transform .25s ease;
-
-        }
-
-
-        .select-field:focus-within::after {
-
-            transform:
-                rotate(180deg);
-
-        }
-
-
-        /* =====================================================
-           SOCIAL MEDIA FIELDS
+           SOCIAL MEDIA FIELD
         ===================================================== */
 
         .social-field {
@@ -814,6 +796,10 @@
         }
 
 
+        /* =====================================================
+           SOCIAL LABEL
+        ===================================================== */
+
         .social-label {
 
             display:
@@ -823,28 +809,123 @@
                 center;
 
             gap:
-                8px;
+                9px;
+
+            color:
+                #e4edf0 !important;
 
         }
 
 
-        .social-dot {
+        /* =====================================================
+           SOCIAL ICON
+        ===================================================== */
+
+        .social-icon {
 
             width:
-                7px;
+                25px;
 
             height:
-                7px;
+                25px;
+
+            min-width:
+                25px;
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
 
             border-radius:
-                50%;
+                7px;
 
-            background:
-                #54c4d8;
+            color:
+                white;
 
             box-shadow:
-                0 0 10px
-                rgba(84,196,216,.5);
+                0 5px 15px
+                rgba(0,0,0,.22);
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease;
+
+        }
+
+
+        .social-icon svg {
+
+            width:
+                14px;
+
+            height:
+                14px;
+
+            fill:
+                currentColor;
+
+        }
+
+
+        /* =====================================================
+           FACEBOOK
+        ===================================================== */
+
+        .facebook-icon {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #1877f2,
+                    #0d5dcc
+                );
+
+        }
+
+
+        /* =====================================================
+           INSTAGRAM
+        ===================================================== */
+
+        .instagram-icon {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #833ab4,
+                    #fd1d1d,
+                    #fcb045
+                );
+
+        }
+
+
+        .social-field:hover .social-icon {
+
+            transform:
+                translateY(-1px)
+                scale(1.06);
+
+            box-shadow:
+                0 7px 20px
+                rgba(0,0,0,.30);
+
+        }
+
+
+        /* =====================================================
+           SOCIAL INPUT
+        ===================================================== */
+
+        .social-field input {
+
+            padding-left:
+                15px;
 
         }
 
@@ -1073,6 +1154,9 @@
 
             .form-container {
 
+                width:
+                    100%;
+
                 padding:
                     27px 18px;
 
@@ -1184,6 +1268,20 @@
 
             }
 
+
+            .social-icon {
+
+                width:
+                    23px;
+
+                height:
+                    23px;
+
+                min-width:
+                    23px;
+
+            }
+
         }
 
 
@@ -1270,9 +1368,7 @@
             <div class="form-grid">
 
 
-                <!-- =============================================
-                     FIRST NAME
-                ============================================== -->
+                <!-- FIRST NAME -->
 
                 <div class="field">
 
@@ -1292,9 +1388,7 @@
                 </div>
 
 
-                <!-- =============================================
-                     LAST NAME
-                ============================================== -->
+                <!-- LAST NAME -->
 
                 <div class="field">
 
@@ -1314,9 +1408,7 @@
                 </div>
 
 
-                <!-- =============================================
-                     COMPANY / CLINIC / HOSPITAL
-                ============================================== -->
+                <!-- COMPANY -->
 
                 <div class="field full">
 
@@ -1336,9 +1428,7 @@
                 </div>
 
 
-                <!-- =============================================
-                     TITLE
-                ============================================== -->
+                <!-- TITLE -->
 
                 <div class="field">
 
@@ -1358,9 +1448,7 @@
                 </div>
 
 
-                <!-- =============================================
-                     CATEGORY
-                ============================================== -->
+                <!-- CATEGORY -->
 
                 <div class="field select-field">
 
@@ -1506,9 +1594,7 @@
                 </div>
 
 
-                <!-- =============================================
-                     SPECIALIZATION
-                ============================================== -->
+                <!-- SPECIALIZATION -->
 
                 <div class="field select-field">
 
@@ -1678,9 +1764,7 @@
                 </div>
 
 
-                <!-- =============================================
-                     PHONE
-                ============================================== -->
+                <!-- PHONE -->
 
                 <div class="field">
 
@@ -1700,9 +1784,7 @@
                 </div>
 
 
-                <!-- =============================================
-                     EMAIL
-                ============================================== -->
+                <!-- EMAIL -->
 
                 <div class="field">
 
@@ -1722,9 +1804,7 @@
                 </div>
 
 
-                <!-- =============================================
-                     CITY
-                ============================================== -->
+                <!-- CITY -->
 
                 <div class="field">
 
@@ -1744,9 +1824,7 @@
                 </div>
 
 
-                <!-- =============================================
-                     STATE
-                ============================================== -->
+                <!-- STATE -->
 
                 <div class="field select-field">
 
@@ -1840,9 +1918,7 @@
                 </div>
 
 
-                <!-- =============================================
-                     COUNTRY
-                ============================================== -->
+                <!-- COUNTRY -->
 
                 <div class="field select-field">
 
@@ -1908,9 +1984,7 @@
                 </div>
 
 
-                <!-- =============================================
-                     WEBSITE
-                ============================================== -->
+                <!-- WEBSITE -->
 
                 <div class="field full">
 
@@ -1930,9 +2004,7 @@
                 </div>
 
 
-                <!-- =============================================
-                     FACEBOOK
-                ============================================== -->
+                <!-- FACEBOOK -->
 
                 <div class="field social-field">
 
@@ -1941,7 +2013,18 @@
                         class="social-label"
                     >
 
-                        <span class="social-dot"></span>
+                        <span class="social-icon facebook-icon">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.7-1.6h1.8V4.8c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5V11H7.2v3h2.8v8h3.5Z"
+                                />
+                            </svg>
+
+                        </span>
 
                         Facebook
 
@@ -1958,9 +2041,7 @@
                 </div>
 
 
-                <!-- =============================================
-                     INSTAGRAM
-                ============================================== -->
+                <!-- INSTAGRAM -->
 
                 <div class="field social-field">
 
@@ -1969,7 +2050,18 @@
                         class="social-label"
                     >
 
-                        <span class="social-dot"></span>
+                        <span class="social-icon instagram-icon">
+
+                            <svg
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"
+                                />
+                            </svg>
+
+                        </span>
 
                         Instagram
 
@@ -1986,9 +2078,7 @@
                 </div>
 
 
-                <!-- =============================================
-                     DESCRIPTION
-                ============================================== -->
+                <!-- DESCRIPTION -->
 
                 <div class="field full">
 
@@ -2005,9 +2095,7 @@
                 </div>
 
 
-                <!-- =============================================
-                     LEAD SOURCE
-                ============================================== -->
+                <!-- LEAD SOURCE -->
 
                 <div class="field full select-field">
 
@@ -2129,12 +2217,6 @@
 
         /* =====================================================
            FORM SUBMISSION
-           
-           IMPORTANT:
-           Every field is optional.
-           
-           We only validate URL fields when the user has
-           entered something into them.
         ===================================================== */
 
         document.addEventListener(
@@ -2166,11 +2248,6 @@
                         element.value.trim();
 
 
-                    /*
-                       Empty URL is completely valid
-                       because the field is optional.
-                    */
-
                     if (value === "") {
 
                         return true;
@@ -2183,10 +2260,6 @@
                         const url =
                             new URL(value);
 
-
-                        /*
-                           Require HTTP or HTTPS
-                        */
 
                         if (
                             url.protocol !== "http:" &&
@@ -2228,9 +2301,7 @@
                     function (event) {
 
 
-                        /*
-                           Website
-                        */
+                        /* WEBSITE */
 
                         const website =
                             document.getElementById(
@@ -2252,9 +2323,7 @@
                         }
 
 
-                        /*
-                           Facebook
-                        */
+                        /* FACEBOOK */
 
                         const facebook =
                             document.getElementById(
@@ -2276,9 +2345,7 @@
                         }
 
 
-                        /*
-                           Instagram
-                        */
+                        /* INSTAGRAM */
 
                         const instagram =
                             document.getElementById(
@@ -2300,10 +2367,7 @@
                         }
 
 
-                        /*
-                           Disable button after
-                           successful validation.
-                        */
+                        /* DISABLE BUTTON */
 
                         submitButton.disabled =
                             true;
