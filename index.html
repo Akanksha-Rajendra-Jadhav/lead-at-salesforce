@@ -3,1193 +3,1214 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<meta
-    name="description"
-    content="Lead to Salesforce"
->
+    <meta
+        name="description"
+        content="Lead to Salesforce"
+    >
 
-<title>Lead to Salesforce</title>
+    <title>Lead to Salesforce</title>
 
-<style>
 
-/* =========================================================
-   ROOT
-========================================================= */
+    <style>
 
-:root {
+        /* =====================================================
+           ROOT VARIABLES
+        ===================================================== */
 
-    --background: #070b10;
+        :root {
 
-    --card-bg: rgba(17, 25, 32, 0.90);
+            --background: #070b10;
 
-    --input-bg: rgba(255, 255, 255, 0.045);
+            --card-bg: rgba(17, 25, 32, 0.90);
 
-    --input-hover: rgba(255, 255, 255, 0.065);
+            --input-bg: rgba(255, 255, 255, 0.045);
 
-    --border: rgba(255, 255, 255, 0.10);
+            --input-hover: rgba(255, 255, 255, 0.065);
 
-    --border-hover: rgba(84, 196, 216, 0.40);
+            --border: rgba(255, 255, 255, 0.10);
 
-    --text: #f5f8fa;
+            --border-hover: rgba(84, 196, 216, 0.40);
 
-    --label: #dbe5e8;
+            --text: #f5f8fa;
 
-    --placeholder: #718087;
+            --label: #dbe5e8;
 
-    --cyan: #398fa1;
+            --placeholder: #718087;
 
-    --cyan-light: #54c4d8;
+            --cyan: #398fa1;
 
-    --purple: #7567ff;
+            --cyan-light: #54c4d8;
 
-    --error: #ff6868;
+            --purple: #7567ff;
 
-}
+            --error: #ff6868;
 
+        }
 
-/* =========================================================
-   RESET
-========================================================= */
 
-* {
+        /* =====================================================
+           RESET
+        ===================================================== */
 
-    box-sizing: border-box;
+        * {
 
-    margin: 0;
+            box-sizing: border-box;
 
-    padding: 0;
+            margin: 0;
 
-}
+            padding: 0;
 
+        }
 
-/* =========================================================
-   HTML
-========================================================= */
 
-html {
+        /* =====================================================
+           HTML
+        ===================================================== */
 
-    scroll-behavior: smooth;
+        html {
 
-}
+            scroll-behavior: smooth;
 
+        }
 
-/* =========================================================
-   BODY
-========================================================= */
 
-body {
+        /* =====================================================
+           BODY
+        ===================================================== */
 
-    min-height: 100vh;
+        body {
 
-    padding: 35px 18px;
+            min-height: 100vh;
 
-    display: flex;
+            padding: 35px 18px;
 
-    align-items: center;
+            display: flex;
 
-    justify-content: center;
+            align-items: center;
 
-    font-family:
-        Inter,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Arial,
-        sans-serif;
+            justify-content: center;
 
-    color: var(--text);
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
 
-    background:
+            color: var(--text);
 
-        radial-gradient(
-            circle at 5% 5%,
-            rgba(57, 143, 161, 0.18),
-            transparent 30%
-        ),
+            background:
 
-        radial-gradient(
-            circle at 95% 95%,
-            rgba(117, 103, 255, 0.16),
-            transparent 32%
-        ),
+                radial-gradient(
+                    circle at 5% 5%,
+                    rgba(57, 143, 161, 0.18),
+                    transparent 30%
+                ),
 
-        radial-gradient(
-            circle at 50% 50%,
-            rgba(57, 143, 161, 0.04),
-            transparent 45%
-        ),
+                radial-gradient(
+                    circle at 95% 95%,
+                    rgba(117, 103, 255, 0.16),
+                    transparent 32%
+                ),
 
-        var(--background);
+                radial-gradient(
+                    circle at 50% 50%,
+                    rgba(57, 143, 161, 0.04),
+                    transparent 45%
+                ),
 
-    overflow-x: hidden;
+                var(--background);
 
-}
+            overflow-x: hidden;
 
+        }
 
-/* =========================================================
-   BACKGROUND GLOW
-========================================================= */
 
-body::before {
+        /* =====================================================
+           BACKGROUND GLOW
+        ===================================================== */
 
-    content: "";
+        body::before {
 
-    position: fixed;
+            content: "";
 
-    width: 400px;
+            position: fixed;
 
-    height: 400px;
+            width: 400px;
 
-    border-radius: 50%;
+            height: 400px;
 
-    top: -180px;
+            border-radius: 50%;
 
-    right: -160px;
+            top: -180px;
 
-    background:
-        rgba(117, 103, 255, 0.10);
+            right: -160px;
 
-    filter:
-        blur(70px);
+            background:
+                rgba(117, 103, 255, 0.10);
 
-    pointer-events: none;
+            filter:
+                blur(70px);
 
-    animation:
-        glowMove 9s ease-in-out infinite;
+            pointer-events: none;
 
-}
+            animation:
+                glowMove 9s ease-in-out infinite;
 
+        }
 
-body::after {
 
-    content: "";
+        body::after {
 
-    position: fixed;
+            content: "";
 
-    width: 350px;
+            position: fixed;
 
-    height: 350px;
+            width: 350px;
 
-    border-radius: 50%;
+            height: 350px;
 
-    bottom: -180px;
+            border-radius: 50%;
 
-    left: -150px;
+            bottom: -180px;
 
-    background:
-        rgba(57, 143, 161, 0.12);
+            left: -150px;
 
-    filter:
-        blur(70px);
+            background:
+                rgba(57, 143, 161, 0.12);
 
-    pointer-events: none;
+            filter:
+                blur(70px);
 
-    animation:
-        glowMove 11s ease-in-out infinite reverse;
+            pointer-events: none;
 
-}
+            animation:
+                glowMove 11s ease-in-out infinite reverse;
 
+        }
 
-@keyframes glowMove {
 
-    0%,
-    100% {
+        @keyframes glowMove {
 
-        transform:
-            translate(0, 0)
-            scale(1);
+            0%,
+            100% {
 
-    }
+                transform:
+                    translate(0, 0)
+                    scale(1);
 
-    50% {
+            }
 
-        transform:
-            translate(-30px, 25px)
-            scale(1.12);
+            50% {
 
-    }
+                transform:
+                    translate(-30px, 25px)
+                    scale(1.12);
 
-}
+            }
 
+        }
 
-/* =========================================================
-   FORM CONTAINER
-========================================================= */
 
-.form-container {
+        /* =====================================================
+           MAIN FORM CONTAINER
+        ===================================================== */
 
-    position: relative;
+        .form-container {
 
-    width: min(900px, 100%);
+            position: relative;
 
-    padding: 42px;
+            width: min(940px, 100%);
 
-    border-radius: 24px;
+            padding: 42px;
 
-    background:
+            border-radius: 24px;
 
-        linear-gradient(
-            145deg,
-            rgba(255, 255, 255, 0.075),
-            rgba(255, 255, 255, 0.025)
-        );
+            background:
 
-    border:
-        1px solid var(--border);
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.075),
+                    rgba(255, 255, 255, 0.025)
+                );
 
-    box-shadow:
-        0 35px 90px rgba(0, 0, 0, 0.48);
+            border:
+                1px solid var(--border);
 
-    backdrop-filter:
-        blur(24px);
+            box-shadow:
+                0 35px 90px rgba(0, 0, 0, 0.48);
 
-    -webkit-backdrop-filter:
-        blur(24px);
+            backdrop-filter:
+                blur(24px);
 
-    overflow: hidden;
+            -webkit-backdrop-filter:
+                blur(24px);
 
-    animation:
-        formAppear 0.75s
-        cubic-bezier(.2,.8,.2,1)
-        both;
+            overflow: hidden;
 
-}
+            animation:
+                formAppear 0.75s
+                cubic-bezier(.2,.8,.2,1)
+                both;
 
+        }
 
-/* =========================================================
-   TOP LIGHT
-========================================================= */
 
-.form-container::before {
+        /* =====================================================
+           TOP LIGHT
+        ===================================================== */
 
-    content: "";
+        .form-container::before {
 
-    position: absolute;
+            content: "";
 
-    top: 0;
+            position: absolute;
 
-    left: 12%;
+            top: 0;
 
-    width: 76%;
+            left: 12%;
 
-    height: 1px;
+            width: 76%;
 
-    background:
+            height: 1px;
 
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(84, 196, 216, .7),
-            rgba(117, 103, 255, .7),
-            transparent
-        );
+            background:
 
-}
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(84, 196, 216, .7),
+                    rgba(117, 103, 255, .7),
+                    transparent
+                );
 
+        }
 
-/* =========================================================
-   INNER GLOW
-========================================================= */
 
-.form-container::after {
+        /* =====================================================
+           INNER GLOW
+        ===================================================== */
 
-    content: "";
+        .form-container::after {
 
-    position: absolute;
+            content: "";
 
-    width: 280px;
+            position: absolute;
 
-    height: 280px;
+            width: 280px;
 
-    top: -180px;
+            height: 280px;
 
-    left: -180px;
+            top: -180px;
 
-    border-radius: 50%;
+            left: -180px;
 
-    background:
-        rgba(57, 143, 161, .07);
+            border-radius: 50%;
 
-    filter:
-        blur(45px);
+            background:
+                rgba(57, 143, 161, .07);
 
-    pointer-events: none;
+            filter:
+                blur(45px);
 
-}
+            pointer-events: none;
 
+        }
 
-@keyframes formAppear {
 
-    from {
+        @keyframes formAppear {
 
-        opacity: 0;
+            from {
 
-        transform:
-            translateY(30px)
-            scale(.98);
+                opacity: 0;
 
-    }
+                transform:
+                    translateY(30px)
+                    scale(.98);
 
-    to {
+            }
 
-        opacity: 1;
+            to {
 
-        transform:
-            translateY(0)
-            scale(1);
+                opacity: 1;
 
-    }
+                transform:
+                    translateY(0)
+                    scale(1);
 
-}
+            }
 
+        }
 
-/* =========================================================
-   FORM
-========================================================= */
 
-form {
+        /* =====================================================
+           FORM
+        ===================================================== */
 
-    position: relative;
+        form {
 
-    z-index: 2;
+            position: relative;
 
-}
+            z-index: 2;
 
+        }
 
-/* =========================================================
-   FORM HEADER
-========================================================= */
 
-.form-header {
+        /* =====================================================
+           HEADER
+        ===================================================== */
 
-    text-align: center;
+        .form-header {
 
-    margin-bottom: 34px;
+            text-align: center;
 
-}
+            margin-bottom: 34px;
 
+        }
 
-/* =========================================================
-   TITLE
-========================================================= */
 
-.form-header h1 {
+        .form-header h1 {
 
-    margin: 0;
+            margin: 0;
 
-    font-size:
-        clamp(27px, 4vw, 38px);
+            font-size:
+                clamp(27px, 4vw, 38px);
 
-    line-height: 1.2;
+            line-height: 1.2;
 
-    font-weight: 750;
+            font-weight: 750;
 
-    letter-spacing: -0.9px;
+            letter-spacing: -0.9px;
 
-    background:
+            background:
 
-        linear-gradient(
-            100deg,
-            #ffffff 10%,
-            #54c4d8 48%,
-            #8a7dff 90%
-        );
+                linear-gradient(
+                    100deg,
+                    #ffffff 10%,
+                    #54c4d8 48%,
+                    #8a7dff 90%
+                );
 
-    -webkit-background-clip: text;
+            -webkit-background-clip: text;
 
-    background-clip: text;
+            background-clip: text;
 
-    -webkit-text-fill-color: transparent;
+            -webkit-text-fill-color: transparent;
 
-    animation:
-        titleGlow 4s ease-in-out infinite alternate;
+            animation:
+                titleGlow 4s ease-in-out infinite alternate;
 
-}
+        }
 
 
-/* =========================================================
-   SUBTITLE
-========================================================= */
+        .form-header p {
 
-.form-header p {
+            margin-top: 10px;
 
-    margin-top: 10px;
+            color: #89979e;
 
-    color: #89979e;
+            font-size: 14px;
 
-    font-size: 14px;
+            line-height: 1.6;
 
-    line-height: 1.6;
+        }
 
-}
 
+        @keyframes titleGlow {
 
-@keyframes titleGlow {
+            from {
 
-    from {
+                filter:
+                    drop-shadow(
+                        0 0 4px
+                        rgba(84, 196, 216, .05)
+                    );
 
-        filter:
-            drop-shadow(
-                0 0 4px
-                rgba(84, 196, 216, .05)
-            );
+            }
 
-    }
+            to {
 
-    to {
+                filter:
+                    drop-shadow(
+                        0 0 15px
+                        rgba(84, 196, 216, .18)
+                    );
 
-        filter:
-            drop-shadow(
-                0 0 15px
-                rgba(84, 196, 216, .18)
-            );
+            }
 
-    }
+        }
 
-}
 
+        /* =====================================================
+           FORM GRID
+        ===================================================== */
 
-/* =========================================================
-   FORM GRID
-========================================================= */
+        .form-grid {
 
-.form-grid {
+            display: grid;
 
-    display: grid;
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
 
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+            gap: 22px 20px;
 
-    gap: 22px 20px;
+        }
 
-}
 
+        /* =====================================================
+           FIELD
+        ===================================================== */
 
-/* =========================================================
-   FIELD
-========================================================= */
+        .field {
 
-.field {
+            width: 100%;
 
-    width: 100%;
+            position: relative;
 
-    position: relative;
+            animation:
+                fieldAppear .55s ease both;
 
-    animation:
-        fieldAppear .55s ease both;
+        }
 
-}
 
+        .field.full {
 
-.field.full {
+            grid-column:
+                1 / -1;
 
-    grid-column:
-        1 / -1;
+        }
 
-}
 
+        .field:nth-child(1) {
+            animation-delay: .05s;
+        }
 
-.field:nth-child(1) {
-    animation-delay: .05s;
-}
+        .field:nth-child(2) {
+            animation-delay: .10s;
+        }
 
-.field:nth-child(2) {
-    animation-delay: .10s;
-}
+        .field:nth-child(3) {
+            animation-delay: .15s;
+        }
 
-.field:nth-child(3) {
-    animation-delay: .15s;
-}
+        .field:nth-child(4) {
+            animation-delay: .20s;
+        }
 
-.field:nth-child(4) {
-    animation-delay: .20s;
-}
+        .field:nth-child(5) {
+            animation-delay: .25s;
+        }
 
-.field:nth-child(5) {
-    animation-delay: .25s;
-}
+        .field:nth-child(6) {
+            animation-delay: .30s;
+        }
 
-.field:nth-child(6) {
-    animation-delay: .30s;
-}
+        .field:nth-child(7) {
+            animation-delay: .35s;
+        }
 
-.field:nth-child(7) {
-    animation-delay: .35s;
-}
+        .field:nth-child(8) {
+            animation-delay: .40s;
+        }
 
-.field:nth-child(8) {
-    animation-delay: .40s;
-}
+        .field:nth-child(9) {
+            animation-delay: .45s;
+        }
 
-.field:nth-child(9) {
-    animation-delay: .45s;
-}
+        .field:nth-child(10) {
+            animation-delay: .50s;
+        }
 
-.field:nth-child(10) {
-    animation-delay: .50s;
-}
+        .field:nth-child(11) {
+            animation-delay: .55s;
+        }
 
-.field:nth-child(11) {
-    animation-delay: .55s;
-}
+        .field:nth-child(12) {
+            animation-delay: .60s;
+        }
 
+        .field:nth-child(13) {
+            animation-delay: .65s;
+        }
 
-@keyframes fieldAppear {
+        .field:nth-child(14) {
+            animation-delay: .70s;
+        }
 
-    from {
+        .field:nth-child(15) {
+            animation-delay: .75s;
+        }
 
-        opacity: 0;
 
-        transform:
-            translateY(10px);
+        @keyframes fieldAppear {
 
-    }
+            from {
 
-    to {
+                opacity: 0;
 
-        opacity: 1;
+                transform:
+                    translateY(10px);
 
-        transform:
-            translateY(0);
+            }
 
-    }
+            to {
 
-}
+                opacity: 1;
 
+                transform:
+                    translateY(0);
 
-/* =========================================================
-   LABEL
-========================================================= */
+            }
 
-.field label {
+        }
 
-    display: block;
 
-    margin-bottom: 8px;
+        /* =====================================================
+           LABEL
+        ===================================================== */
 
-    color:
-        var(--label);
+        .field label {
 
-    font-size: 13px;
+            display: block;
 
-    font-weight: 600;
+            margin-bottom: 8px;
 
-    letter-spacing: .15px;
+            color:
+                var(--label);
 
-}
+            font-size: 13px;
 
+            font-weight: 600;
 
-/* =========================================================
-   INPUT / SELECT / TEXTAREA
-========================================================= */
+            letter-spacing: .15px;
 
-.field input,
-.field select,
-.field textarea {
+        }
 
-    width: 100%;
 
-    border:
-        1px solid
-        var(--border);
+        /* =====================================================
+           INPUT / SELECT / TEXTAREA
+        ===================================================== */
 
-    border-radius: 12px;
+        .field input,
+        .field select,
+        .field textarea {
 
-    background:
-        var(--input-bg);
+            width: 100%;
 
-    color:
-        var(--text);
+            border:
+                1px solid
+                var(--border);
 
-    font-family:
-        inherit;
+            border-radius: 12px;
 
-    font-size:
-        14px;
+            background:
+                var(--input-bg);
 
-    outline:
-        none;
+            color:
+                var(--text);
 
-    transition:
+            font-family:
+                inherit;
 
-        border-color .25s ease,
+            font-size:
+                14px;
 
-        background .25s ease,
+            outline:
+                none;
 
-        box-shadow .25s ease,
+            transition:
 
-        transform .25s ease;
+                border-color .25s ease,
 
-}
+                background .25s ease,
 
+                box-shadow .25s ease,
 
-/* =========================================================
-   INPUT + SELECT
-========================================================= */
+                transform .25s ease;
 
-.field input,
-.field select {
+        }
 
-    height:
-        52px;
 
-    padding:
-        0 15px;
+        /* =====================================================
+           INPUT + SELECT
+        ===================================================== */
 
-}
+        .field input,
+        .field select {
 
+            height:
+                52px;
 
-/* =========================================================
-   TEXTAREA
-========================================================= */
+            padding:
+                0 15px;
 
-.field textarea {
+        }
 
-    min-height:
-        130px;
 
-    padding:
-        14px 15px;
+        /* =====================================================
+           TEXTAREA
+        ===================================================== */
 
-    resize:
-        vertical;
+        .field textarea {
 
-    line-height:
-        1.55;
+            min-height:
+                130px;
 
-}
+            padding:
+                14px 15px;
 
+            resize:
+                vertical;
 
-/* =========================================================
-   PLACEHOLDER
-========================================================= */
+            line-height:
+                1.55;
 
-.field input::placeholder,
-.field textarea::placeholder {
+        }
 
-    color:
-        var(--placeholder);
 
-}
+        /* =====================================================
+           PLACEHOLDER
+        ===================================================== */
 
+        .field input::placeholder,
+        .field textarea::placeholder {
 
-/* =========================================================
-   SELECT
-========================================================= */
+            color:
+                var(--placeholder);
 
-.field select {
+        }
 
-    cursor:
-        pointer;
 
-}
+        /* =====================================================
+           SELECT
+        ===================================================== */
 
+        .field select {
 
-.field select option {
+            cursor:
+                pointer;
 
-    background:
-        #111b22;
+        }
 
-    color:
-        white;
 
-}
+        .field select option {
 
+            background:
+                #111b22;
 
-/* =========================================================
-   HOVER
-========================================================= */
+            color:
+                white;
 
-.field input:hover,
-.field select:hover,
-.field textarea:hover {
+        }
 
-    border-color:
-        var(--border-hover);
 
-    background:
-        var(--input-hover);
+        /* =====================================================
+           HOVER
+        ===================================================== */
 
-}
+        .field input:hover,
+        .field select:hover,
+        .field textarea:hover {
 
+            border-color:
+                var(--border-hover);
 
-/* =========================================================
-   FOCUS
-========================================================= */
+            background:
+                var(--input-hover);
 
-.field input:focus,
-.field select:focus,
-.field textarea:focus {
+        }
 
-    border-color:
-        var(--cyan-light);
 
-    background:
-        rgba(57, 143, 161, .07);
+        /* =====================================================
+           FOCUS
+        ===================================================== */
 
-    box-shadow:
+        .field input:focus,
+        .field select:focus,
+        .field textarea:focus {
 
-        0 0 0 3px
-        rgba(57, 143, 161, .10),
+            border-color:
+                var(--cyan-light);
 
-        0 0 25px
-        rgba(57, 143, 161, .08);
+            background:
+                rgba(57, 143, 161, .07);
 
-    transform:
-        translateY(-1px);
+            box-shadow:
 
-}
+                0 0 0 3px
+                rgba(57, 143, 161, .10),
 
+                0 0 25px
+                rgba(57, 143, 161, .08);
 
-/* =========================================================
-   INVALID
-========================================================= */
+            transform:
+                translateY(-1px);
 
-.field input.invalid,
-.field select.invalid,
-.field textarea.invalid {
+        }
 
-    border-color:
-        var(--error);
 
-    box-shadow:
+        /* =====================================================
+           CUSTOM DROPDOWN ARROW
+        ===================================================== */
 
-        0 0 0 3px
-        rgba(255, 104, 104, .08);
+        .select-field::after {
 
-}
+            content:
+                "⌄";
 
+            position:
+                absolute;
 
-/* =========================================================
-   ERROR
-========================================================= */
+            right:
+                16px;
 
-.error-message {
+            bottom:
+                13px;
 
-    display:
-        none;
+            color:
+                #54c4d8;
 
-    margin-top:
-        6px;
+            font-size:
+                18px;
 
-    color:
-        var(--error);
+            font-weight:
+                600;
 
-    font-size:
-        11px;
+            pointer-events:
+                none;
 
-    line-height:
-        1.4;
+            transition:
+                transform .25s ease;
 
-}
+        }
 
 
-.error-message.show {
+        .select-field:focus-within::after {
 
-    display:
-        block;
+            transform:
+                rotate(180deg);
 
-    animation:
-        errorAppear .2s ease;
+        }
 
-}
 
+        /* =====================================================
+           SOCIAL MEDIA FIELDS
+        ===================================================== */
 
-@keyframes errorAppear {
+        .social-field {
 
-    from {
+            position:
+                relative;
 
-        opacity:
-            0;
+        }
 
-        transform:
-            translateY(-3px);
 
-    }
+        .social-label {
 
-    to {
+            display:
+                flex !important;
 
-        opacity:
-            1;
+            align-items:
+                center;
 
-        transform:
-            translateY(0);
+            gap:
+                8px;
 
-    }
+        }
 
-}
 
+        .social-dot {
 
-/* =========================================================
-   FOOTER
-========================================================= */
+            width:
+                7px;
 
-.form-footer {
+            height:
+                7px;
 
-    margin-top:
-        28px;
+            border-radius:
+                50%;
 
-}
+            background:
+                #54c4d8;
 
+            box-shadow:
+                0 0 10px
+                rgba(84,196,216,.5);
 
-/* =========================================================
-   SUBMIT BUTTON
-========================================================= */
+        }
 
-.submit-button {
 
-    position:
-        relative;
+        /* =====================================================
+           SUBMIT FOOTER
+        ===================================================== */
 
-    width:
-        100%;
+        .form-footer {
 
-    height:
-        56px;
+            margin-top:
+                28px;
 
-    border:
-        0;
+        }
 
-    border-radius:
-        12px;
 
-    overflow:
-        hidden;
+        /* =====================================================
+           SUBMIT BUTTON
+        ===================================================== */
 
-    background:
+        .submit-button {
 
-        linear-gradient(
-            110deg,
-            #398fa1,
-            #48b5c7,
-            #7567ff
-        );
+            position:
+                relative;
 
-    background-size:
-        220% 100%;
+            width:
+                100%;
 
-    color:
-        #ffffff;
+            height:
+                56px;
 
-    font-family:
-        inherit;
+            border:
+                0;
 
-    font-size:
-        15px;
+            border-radius:
+                12px;
 
-    font-weight:
-        700;
+            overflow:
+                hidden;
 
-    letter-spacing:
-        .2px;
+            background:
 
-    cursor:
-        pointer;
+                linear-gradient(
+                    110deg,
+                    #398fa1,
+                    #48b5c7,
+                    #7567ff
+                );
 
-    box-shadow:
-        0 12px 30px
-        rgba(57, 143, 161, .22);
+            background-size:
+                220% 100%;
 
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
+            color:
+                #ffffff;
 
-}
+            font-family:
+                inherit;
 
+            font-size:
+                15px;
 
-/* =========================================================
-   BUTTON SHINE
-========================================================= */
+            font-weight:
+                700;
 
-.submit-button::before {
+            letter-spacing:
+                .2px;
 
-    content:
-        "";
+            cursor:
+                pointer;
 
-    position:
-        absolute;
+            box-shadow:
+                0 12px 30px
+                rgba(57, 143, 161, .22);
 
-    top:
-        0;
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease;
 
-    left:
-        -100%;
+        }
 
-    width:
-        60%;
 
-    height:
-        100%;
+        /* =====================================================
+           BUTTON SHINE
+        ===================================================== */
 
-    background:
+        .submit-button::before {
 
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.25),
-            transparent
-        );
+            content:
+                "";
 
-    transform:
-        skewX(-20deg);
+            position:
+                absolute;
 
-    transition:
-        left .65s ease;
+            top:
+                0;
 
-}
+            left:
+                -100%;
 
+            width:
+                60%;
 
-.submit-button:hover::before {
+            height:
+                100%;
 
-    left:
-        130%;
+            background:
 
-}
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,.25),
+                    transparent
+                );
 
+            transform:
+                skewX(-20deg);
 
-.submit-button:hover {
+            transition:
+                left .65s ease;
 
-    transform:
-        translateY(-2px);
+        }
 
-    box-shadow:
-        0 18px 40px
-        rgba(57, 143, 161, .30);
 
-    animation:
-        buttonGradient 2s
-        linear infinite;
+        .submit-button:hover::before {
 
-}
+            left:
+                130%;
 
+        }
 
-@keyframes buttonGradient {
 
-    0% {
+        .submit-button:hover {
 
-        background-position:
-            0% 50%;
+            transform:
+                translateY(-2px);
 
-    }
+            box-shadow:
+                0 18px 40px
+                rgba(57, 143, 161, .30);
 
-    100% {
+            animation:
+                buttonGradient 2s
+                linear infinite;
 
-        background-position:
-            100% 50%;
+        }
 
-    }
 
-}
+        @keyframes buttonGradient {
 
+            0% {
 
-.submit-button:active {
+                background-position:
+                    0% 50%;
 
-    transform:
-        translateY(0);
+            }
 
-}
+            100% {
 
+                background-position:
+                    100% 50%;
 
-.submit-button:disabled {
+            }
 
-    opacity:
-        .6;
+        }
 
-    cursor:
-        not-allowed;
 
-    animation:
-        none;
+        .submit-button:active {
 
-}
+            transform:
+                translateY(0);
 
+        }
 
-/* =========================================================
-   TABLET
-========================================================= */
 
-@media (
-    min-width: 701px
-)
-and (
-    max-width: 900px
-) {
+        .submit-button:disabled {
 
-    .form-container {
+            opacity:
+                .6;
 
-        padding:
-            34px;
+            cursor:
+                not-allowed;
 
-    }
+            animation:
+                none;
 
-}
+        }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+        /* =====================================================
+           TABLET
+        ===================================================== */
 
-@media (max-width: 700px) {
+        @media (
+            min-width: 701px
+        )
+        and (
+            max-width: 900px
+        ) {
 
-    body {
+            .form-container {
 
-        padding:
-            15px 9px;
+                padding:
+                    34px;
 
-        align-items:
-            flex-start;
+            }
 
-    }
+        }
 
 
-    .form-container {
+        /* =====================================================
+           MOBILE
+        ===================================================== */
 
-        padding:
-            27px 18px;
+        @media (max-width: 700px) {
 
-        border-radius:
-            18px;
+            body {
 
-    }
+                padding:
+                    15px 9px;
 
+                align-items:
+                    flex-start;
 
-    .form-header {
+            }
 
-        margin-bottom:
-            26px;
 
-    }
+            .form-container {
 
+                padding:
+                    27px 18px;
 
-    .form-header h1 {
+                border-radius:
+                    18px;
 
-        font-size:
-            27px;
+            }
 
-    }
 
+            .form-header {
 
-    .form-header p {
+                margin-bottom:
+                    26px;
 
-        font-size:
-            13px;
+            }
 
-    }
 
+            .form-header h1 {
 
-    .form-grid {
+                font-size:
+                    27px;
 
-        display:
-            block;
+            }
 
-    }
 
+            .form-header p {
 
-    .field {
+                font-size:
+                    13px;
 
-        margin-bottom:
-            19px;
+            }
 
-    }
 
+            .form-grid {
 
-    .field input,
-    .field select {
+                display:
+                    block;
 
-        height:
-            51px;
+            }
 
-        font-size:
-            16px;
 
-    }
+            .field {
 
+                margin-bottom:
+                    19px;
 
-    .field textarea {
+            }
 
-        font-size:
-            16px;
 
-        min-height:
-            125px;
+            .field input,
+            .field select {
 
-    }
+                height:
+                    51px;
 
+                font-size:
+                    16px;
 
-    .form-footer {
+            }
 
-        margin-top:
-            5px;
 
-    }
+            .field textarea {
 
+                font-size:
+                    16px;
 
-    .submit-button {
+                min-height:
+                    125px;
 
-        height:
-            54px;
+            }
 
-    }
 
-}
+            .form-footer {
 
+                margin-top:
+                    5px;
 
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
+            }
 
-@media (max-width: 380px) {
 
-    .form-container {
+            .submit-button {
 
-        padding:
-            23px 14px;
+                height:
+                    54px;
 
-    }
+            }
 
+        }
 
-    .field label {
 
-        font-size:
-            12px;
+        /* =====================================================
+           SMALL MOBILE
+        ===================================================== */
 
-    }
+        @media (max-width: 380px) {
 
-}
+            .form-container {
 
+                padding:
+                    23px 14px;
 
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
+            }
 
-@media (prefers-reduced-motion: reduce) {
 
-    *,
-    *::before,
-    *::after {
+            .field label {
 
-        animation:
-            none !important;
+                font-size:
+                    12px;
 
-        transition:
-            none !important;
+            }
 
-        scroll-behavior:
-            auto !important;
+        }
 
-    }
 
-}
+        /* =====================================================
+           REDUCED MOTION
+        ===================================================== */
 
-</style>
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation:
+                    none !important;
+
+                transition:
+                    none !important;
+
+                scroll-behavior:
+                    auto !important;
+
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -1197,629 +1218,1107 @@ and (
 <body>
 
 
-<div class="form-container">
+    <div class="form-container">
 
 
-<form
-    id="leadForm"
-    action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Df600000TQIF7"
-    method="POST"
->
+        <form
+            id="leadForm"
+            action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Df600000TQIF7"
+            method="POST"
+        >
 
 
-<!-- =========================================================
-     SALESFORCE HIDDEN FIELDS
-========================================================= -->
+            <!-- =================================================
+                 SALESFORCE HIDDEN FIELDS
+            ================================================== -->
 
-<input
-    type="hidden"
-    name="oid"
-    value="00Df600000TQIF7"
->
+            <input
+                type="hidden"
+                name="oid"
+                value="00Df600000TQIF7"
+            >
 
+            <input
+                type="hidden"
+                name="retURL"
+                value="https://www.google.com/"
+            >
 
-<input
-    type="hidden"
-    name="retURL"
-    value="https://www.google.com/"
->
 
+            <!-- =================================================
+                 HEADER
+            ================================================== -->
 
-<!-- =========================================================
-     TITLE
-========================================================= -->
+            <div class="form-header">
 
-<div class="form-header">
+                <h1>
+                    Lead to Salesforce
+                </h1>
 
-    <h1>Lead to Salesforce</h1>
+                <p>
+                    Add a business, clinic, hospital or professional lead
+                    to Salesforce.
+                </p>
 
-    <p>
-        Submit your details and our team will get in touch with you.
-    </p>
+            </div>
 
-</div>
 
+            <!-- =================================================
+                 FORM GRID
+            ================================================== -->
 
-<!-- =========================================================
-     FORM FIELDS
-========================================================= -->
+            <div class="form-grid">
 
-<div class="form-grid">
 
+                <!-- =============================================
+                     FIRST NAME
+                ============================================== -->
 
-<!-- =========================================================
-     FIRST NAME
-========================================================= -->
+                <div class="field">
 
-<div class="field">
+                    <label for="first_name">
+                        First Name
+                    </label>
 
-    <label for="first_name">
-        First Name
-    </label>
+                    <input
+                        id="first_name"
+                        name="first_name"
+                        type="text"
+                        maxlength="40"
+                        placeholder="Enter first name"
+                        autocomplete="given-name"
+                    >
 
-    <input
-        id="first_name"
-        name="first_name"
-        type="text"
-        maxlength="40"
-        placeholder="Enter first name"
-        autocomplete="given-name"
-    >
+                </div>
 
-</div>
 
+                <!-- =============================================
+                     LAST NAME
+                ============================================== -->
 
-<!-- =========================================================
-     LAST NAME
-========================================================= -->
+                <div class="field">
 
-<div class="field">
+                    <label for="last_name">
+                        Last Name
+                    </label>
 
-    <label for="last_name">
-        Last Name
-    </label>
+                    <input
+                        id="last_name"
+                        name="last_name"
+                        type="text"
+                        maxlength="80"
+                        placeholder="Enter last name"
+                        autocomplete="family-name"
+                    >
 
-    <input
-        id="last_name"
-        name="last_name"
-        type="text"
-        maxlength="80"
-        placeholder="Enter last name"
-        autocomplete="family-name"
-    >
+                </div>
 
-</div>
 
+                <!-- =============================================
+                     COMPANY / CLINIC / HOSPITAL
+                ============================================== -->
 
-<!-- =========================================================
-     PHONE
-========================================================= -->
+                <div class="field full">
 
-<div class="field">
+                    <label for="company">
+                        Company / Clinic / Hospital Name
+                    </label>
 
-    <label for="phone">
-        Phone
-    </label>
+                    <input
+                        id="company"
+                        name="company"
+                        type="text"
+                        maxlength="255"
+                        placeholder="Enter company, clinic or hospital name"
+                        autocomplete="organization"
+                    >
 
-    <input
-        id="phone"
-        name="phone"
-        type="tel"
-        maxlength="40"
-        placeholder="Enter phone number"
-        autocomplete="tel"
-    >
+                </div>
 
-</div>
 
+                <!-- =============================================
+                     TITLE
+                ============================================== -->
 
-<!-- =========================================================
-     EMAIL
-========================================================= -->
+                <div class="field">
 
-<div class="field">
+                    <label for="title">
+                        Title / Designation
+                    </label>
 
-    <label for="email">
-        Email
-    </label>
+                    <input
+                        id="title"
+                        name="title"
+                        type="text"
+                        maxlength="80"
+                        placeholder="e.g. Dr., Owner, Director, Manager"
+                        autocomplete="organization-title"
+                    >
 
-    <input
-        id="email"
-        name="email"
-        type="email"
-        maxlength="80"
-        placeholder="Enter email address"
-        autocomplete="email"
-    >
+                </div>
 
-</div>
 
+                <!-- =============================================
+                     CATEGORY
+                ============================================== -->
 
-<!-- =========================================================
-     COMPANY
-========================================================= -->
+                <div class="field select-field">
 
-<div class="field">
+                    <label for="category">
+                        Category
+                    </label>
 
-    <label for="company">
-        Company
-    </label>
+                    <select
+                        id="category"
+                        name="category"
+                    >
 
-    <input
-        id="company"
-        name="company"
-        type="text"
-        maxlength="40"
-        placeholder="Enter company name"
-        autocomplete="organization"
-    >
+                        <option value="">
+                            Select category
+                        </option>
 
-</div>
+                        <option value="Doctor">
+                            Doctor
+                        </option>
 
+                        <option value="Clinic">
+                            Clinic
+                        </option>
 
-<!-- =========================================================
-     TITLE
-========================================================= -->
+                        <option value="Hospital">
+                            Hospital
+                        </option>
 
-<div class="field">
+                        <option value="Diagnostic Centre">
+                            Diagnostic Centre
+                        </option>
 
-    <label for="title">
-        Title
-    </label>
+                        <option value="Dental Clinic">
+                            Dental Clinic
+                        </option>
 
-    <input
-        id="title"
-        name="title"
-        type="text"
-        maxlength="40"
-        placeholder="Your designation"
-        autocomplete="organization-title"
-    >
+                        <option value="IVF / Fertility Centre">
+                            IVF / Fertility Centre
+                        </option>
 
-</div>
+                        <option value="Pharmacy">
+                            Pharmacy
+                        </option>
 
+                        <option value="Wellness Centre">
+                            Wellness Centre
+                        </option>
 
-<!-- =========================================================
-     CITY
-========================================================= -->
+                        <option value="Physiotherapy Centre">
+                            Physiotherapy Centre
+                        </option>
 
-<div class="field">
+                        <option value="Healthcare Organization">
+                            Healthcare Organization
+                        </option>
 
-    <label for="city">
-        City
-    </label>
+                        <option value="Real Estate">
+                            Real Estate
+                        </option>
 
-    <input
-        id="city"
-        name="city"
-        type="text"
-        maxlength="40"
-        placeholder="Enter city"
-        autocomplete="address-level2"
-    >
+                        <option value="Education">
+                            Education
+                        </option>
 
-</div>
+                        <option value="IT & Software">
+                            IT & Software
+                        </option>
 
+                        <option value="Finance & Insurance">
+                            Finance & Insurance
+                        </option>
 
-<!-- =========================================================
-     COUNTRY
-========================================================= -->
+                        <option value="Manufacturing">
+                            Manufacturing
+                        </option>
 
-<div class="field">
+                        <option value="Retail">
+                            Retail
+                        </option>
 
-    <label for="country_code">
-        Country
-    </label>
+                        <option value="E-commerce">
+                            E-commerce
+                        </option>
 
-    <select
-        id="country_code"
-        name="country_code"
-    >
+                        <option value="Hospitality">
+                            Hospitality
+                        </option>
 
-        <option value="">
-            Select country
-        </option>
+                        <option value="Restaurant / Food">
+                            Restaurant / Food
+                        </option>
 
-        <option value="IN">
-            India
-        </option>
+                        <option value="Travel & Tourism">
+                            Travel & Tourism
+                        </option>
 
-        <option value="US">
-            United States
-        </option>
+                        <option value="Automobile">
+                            Automobile
+                        </option>
 
-        <option value="GB">
-            United Kingdom
-        </option>
+                        <option value="Legal Services">
+                            Legal Services
+                        </option>
 
-        <option value="AE">
-            United Arab Emirates
-        </option>
+                        <option value="Professional Services">
+                            Professional Services
+                        </option>
 
-        <option value="AU">
-            Australia
-        </option>
+                        <option value="Beauty & Salon">
+                            Beauty & Salon
+                        </option>
 
-        <option value="CA">
-            Canada
-        </option>
+                        <option value="Fitness / Gym">
+                            Fitness / Gym
+                        </option>
 
-        <option value="SG">
-            Singapore
-        </option>
+                        <option value="NGO / Non-Profit">
+                            NGO / Non-Profit
+                        </option>
 
-        <option value="DE">
-            Germany
-        </option>
+                        <option value="Media & Entertainment">
+                            Media & Entertainment
+                        </option>
 
-        <option value="FR">
-            France
-        </option>
+                        <option value="Marketing & Advertising">
+                            Marketing & Advertising
+                        </option>
 
-        <option value="JP">
-            Japan
-        </option>
+                        <option value="Construction">
+                            Construction
+                        </option>
 
-        <option value="OTHER">
-            Other
-        </option>
+                        <option value="Architecture & Interior Design">
+                            Architecture & Interior Design
+                        </option>
 
-    </select>
+                        <option value="Other Business">
+                            Other Business
+                        </option>
 
-</div>
+                    </select>
 
+                </div>
 
-<!-- =========================================================
-     STATE
-========================================================= -->
 
-<div class="field">
+                <!-- =============================================
+                     SPECIALIZATION
+                ============================================== -->
 
-    <label for="state_code">
-        State / Province
-    </label>
+                <div class="field select-field">
 
-    <select
-        id="state_code"
-        name="state_code"
-    >
+                    <label for="specialization">
+                        Specialization
+                    </label>
 
-        <option value="">
-            Select state / province
-        </option>
+                    <select
+                        id="specialization"
+                        name="specialization"
+                    >
 
-        <option value="MH">
-            Maharashtra
-        </option>
+                        <option value="">
+                            Select specialization
+                        </option>
 
-        <option value="KA">
-            Karnataka
-        </option>
+                        <option value="Gynaecologist">
+                            Gynaecologist
+                        </option>
 
-        <option value="DL">
-            Delhi
-        </option>
+                        <option value="Obstetrician">
+                            Obstetrician
+                        </option>
 
-        <option value="GJ">
-            Gujarat
-        </option>
+                        <option value="Gynaecologist & Obstetrician">
+                            Gynaecologist & Obstetrician
+                        </option>
 
-        <option value="RJ">
-            Rajasthan
-        </option>
+                        <option value="IVF Specialist">
+                            IVF Specialist
+                        </option>
 
-        <option value="TN">
-            Tamil Nadu
-        </option>
+                        <option value="Fertility Specialist">
+                            Fertility Specialist
+                        </option>
 
-        <option value="TG">
-            Telangana
-        </option>
+                        <option value="Infertility Specialist">
+                            Infertility Specialist
+                        </option>
 
-        <option value="KL">
-            Kerala
-        </option>
+                        <option value="Orthopaedic">
+                            Orthopaedic
+                        </option>
 
-        <option value="UP">
-            Uttar Pradesh
-        </option>
+                        <option value="Orthopaedic Surgeon">
+                            Orthopaedic Surgeon
+                        </option>
 
-        <option value="WB">
-            West Bengal
-        </option>
+                        <option value="General Physician">
+                            General Physician
+                        </option>
 
-        <option value="MP">
-            Madhya Pradesh
-        </option>
+                        <option value="General Surgeon">
+                            General Surgeon
+                        </option>
 
-        <option value="BR">
-            Bihar
-        </option>
+                        <option value="Cardiologist">
+                            Cardiologist
+                        </option>
 
-        <option value="PB">
-            Punjab
-        </option>
+                        <option value="Neurologist">
+                            Neurologist
+                        </option>
 
-        <option value="HR">
-            Haryana
-        </option>
+                        <option value="Neurosurgeon">
+                            Neurosurgeon
+                        </option>
 
-        <option value="GA">
-            Goa
-        </option>
+                        <option value="Dermatologist">
+                            Dermatologist
+                        </option>
 
-        <option value="AP">
-            Andhra Pradesh
-        </option>
+                        <option value="Cosmetologist">
+                            Cosmetologist
+                        </option>
 
-        <option value="OD">
-            Odisha
-        </option>
+                        <option value="Plastic Surgeon">
+                            Plastic Surgeon
+                        </option>
 
-        <option value="OTHER">
-            Other
-        </option>
+                        <option value="Psychiatrist">
+                            Psychiatrist
+                        </option>
 
-    </select>
+                        <option value="Psychologist">
+                            Psychologist
+                        </option>
 
-</div>
+                        <option value="Physiotherapist">
+                            Physiotherapist
+                        </option>
 
+                        <option value="Dentist">
+                            Dentist
+                        </option>
 
-<!-- =========================================================
-     WEBSITE
-========================================================= -->
+                        <option value="Orthodontist">
+                            Orthodontist
+                        </option>
 
-<div class="field">
+                        <option value="Oral & Maxillofacial Surgeon">
+                            Oral & Maxillofacial Surgeon
+                        </option>
 
-    <label for="url">
-        Website
-    </label>
+                        <option value="Ophthalmologist">
+                            Ophthalmologist
+                        </option>
 
-    <input
-        id="url"
-        name="url"
-        type="url"
-        maxlength="80"
-        placeholder="https://yourwebsite.com"
-        autocomplete="url"
-    >
+                        <option value="ENT Specialist">
+                            ENT Specialist
+                        </option>
 
-</div>
+                        <option value="Pulmonologist">
+                            Pulmonologist
+                        </option>
 
+                        <option value="Gastroenterologist">
+                            Gastroenterologist
+                        </option>
 
-<!-- =========================================================
-     DESCRIPTION
-========================================================= -->
+                        <option value="Nephrologist">
+                            Nephrologist
+                        </option>
 
-<div class="field full">
+                        <option value="Urologist">
+                            Urologist
+                        </option>
 
-    <label for="description">
-        Description
-    </label>
+                        <option value="Endocrinologist">
+                            Endocrinologist
+                        </option>
 
-    <textarea
-        id="description"
-        name="description"
-        placeholder="Tell us about your business, goals or marketing requirements..."
-    ></textarea>
+                        <option value="Oncologist">
+                            Oncologist
+                        </option>
 
-</div>
+                        <option value="Rheumatologist">
+                            Rheumatologist
+                        </option>
 
+                        <option value="Diabetologist">
+                            Diabetologist
+                        </option>
 
-<!-- =========================================================
-     LEAD SOURCE
-========================================================= -->
+                        <option value="Pathologist">
+                            Pathologist
+                        </option>
 
-<div class="field full">
+                        <option value="Radiologist">
+                            Radiologist
+                        </option>
 
-    <label for="lead_source">
-        Lead Source
-    </label>
+                        <option value="Ayurveda">
+                            Ayurveda
+                        </option>
 
-    <select
-        id="lead_source"
-        name="lead_source"
-    >
+                        <option value="Homeopathy">
+                            Homeopathy
+                        </option>
 
-        <option value="">
-            Select lead source
-        </option>
+                        <option value="Other Doctor">
+                            Other Doctor
+                        </option>
 
-        <option value="Advertisement">
-            Advertisement
-        </option>
+                    </select>
 
-        <option value="Employee Referral">
-            Employee Referral
-        </option>
+                </div>
 
-        <option value="External Referral">
-            External Referral
-        </option>
 
-        <option value="Partner">
-            Partner
-        </option>
+                <!-- =============================================
+                     PHONE
+                ============================================== -->
 
-        <option value="Public Relations">
-            Public Relations
-        </option>
+                <div class="field">
 
-        <option value="Seminar - Internal">
-            Seminar - Internal
-        </option>
+                    <label for="phone">
+                        Phone
+                    </label>
 
-        <option value="Seminar - Partner">
-            Seminar - Partner
-        </option>
+                    <input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        maxlength="40"
+                        placeholder="Enter phone number"
+                        autocomplete="tel"
+                    >
 
-        <option value="Trade Show">
-            Trade Show
-        </option>
+                </div>
 
-        <option value="Web">
-            Web
-        </option>
 
-        <option value="Word of mouth">
-            Word of mouth
-        </option>
+                <!-- =============================================
+                     EMAIL
+                ============================================== -->
 
-        <option value="Other">
-            Other
-        </option>
+                <div class="field">
 
-        <option value="Website">
-            Website
-        </option>
+                    <label for="email">
+                        Email
+                    </label>
 
-        <option value="LinkedIn">
-            LinkedIn
-        </option>
+                    <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        maxlength="80"
+                        placeholder="Enter email address"
+                        autocomplete="email"
+                    >
 
-        <option value="Cold Call">
-            Cold Call
-        </option>
+                </div>
 
-        <option value="Event">
-            Event
-        </option>
 
-        <option value="WhatsApp">
-            WhatsApp
-        </option>
+                <!-- =============================================
+                     CITY
+                ============================================== -->
 
-        <option value="Santosh Sir">
-            Santosh Sir
-        </option>
+                <div class="field">
 
-    </select>
+                    <label for="city">
+                        City
+                    </label>
 
-</div>
+                    <input
+                        id="city"
+                        name="city"
+                        type="text"
+                        maxlength="40"
+                        placeholder="Enter city"
+                        autocomplete="address-level2"
+                    >
 
+                </div>
 
-</div>
 
+                <!-- =============================================
+                     STATE
+                ============================================== -->
 
-<!-- =========================================================
-     SUBMIT BUTTON
-========================================================= -->
+                <div class="field select-field">
 
-<div class="form-footer">
+                    <label for="state_code">
+                        State / Province
+                    </label>
 
-    <button
-        type="submit"
-        class="submit-button"
-        id="submitButton"
-    >
+                    <select
+                        id="state_code"
+                        name="state_code"
+                    >
 
-        Submit Inquiry →
+                        <option value="">
+                            Select state / province
+                        </option>
 
-    </button>
+                        <option value="MH">
+                            Maharashtra
+                        </option>
 
-</div>
+                        <option value="KA">
+                            Karnataka
+                        </option>
 
+                        <option value="DL">
+                            Delhi
+                        </option>
 
-</form>
+                        <option value="GJ">
+                            Gujarat
+                        </option>
 
-</div>
+                        <option value="RJ">
+                            Rajasthan
+                        </option>
 
+                        <option value="TN">
+                            Tamil Nadu
+                        </option>
 
-<script>
+                        <option value="TG">
+                            Telangana
+                        </option>
 
-/* =========================================================
-   FORM SUBMISSION
-========================================================= */
+                        <option value="KL">
+                            Kerala
+                        </option>
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
+                        <option value="UP">
+                            Uttar Pradesh
+                        </option>
 
-        const form =
-            document.getElementById(
-                "leadForm"
-            );
+                        <option value="WB">
+                            West Bengal
+                        </option>
 
+                        <option value="MP">
+                            Madhya Pradesh
+                        </option>
 
-        const submitButton =
-            document.getElementById(
-                "submitButton"
-            );
+                        <option value="BR">
+                            Bihar
+                        </option>
 
+                        <option value="PB">
+                            Punjab
+                        </option>
+
+                        <option value="HR">
+                            Haryana
+                        </option>
+
+                        <option value="GA">
+                            Goa
+                        </option>
+
+                        <option value="AP">
+                            Andhra Pradesh
+                        </option>
+
+                        <option value="OD">
+                            Odisha
+                        </option>
+
+                        <option value="OTHER">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- =============================================
+                     COUNTRY
+                ============================================== -->
+
+                <div class="field select-field">
+
+                    <label for="country_code">
+                        Country
+                    </label>
+
+                    <select
+                        id="country_code"
+                        name="country_code"
+                    >
+
+                        <option value="">
+                            Select country
+                        </option>
+
+                        <option value="IN">
+                            India
+                        </option>
+
+                        <option value="US">
+                            United States
+                        </option>
+
+                        <option value="GB">
+                            United Kingdom
+                        </option>
+
+                        <option value="AE">
+                            United Arab Emirates
+                        </option>
+
+                        <option value="AU">
+                            Australia
+                        </option>
+
+                        <option value="CA">
+                            Canada
+                        </option>
+
+                        <option value="SG">
+                            Singapore
+                        </option>
+
+                        <option value="DE">
+                            Germany
+                        </option>
+
+                        <option value="FR">
+                            France
+                        </option>
+
+                        <option value="JP">
+                            Japan
+                        </option>
+
+                        <option value="OTHER">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- =============================================
+                     WEBSITE
+                ============================================== -->
+
+                <div class="field full">
+
+                    <label for="url">
+                        Website
+                    </label>
+
+                    <input
+                        id="url"
+                        name="url"
+                        type="url"
+                        maxlength="255"
+                        placeholder="https://yourwebsite.com"
+                        autocomplete="url"
+                    >
+
+                </div>
+
+
+                <!-- =============================================
+                     FACEBOOK
+                ============================================== -->
+
+                <div class="field social-field">
+
+                    <label
+                        for="facebook"
+                        class="social-label"
+                    >
+
+                        <span class="social-dot"></span>
+
+                        Facebook
+
+                    </label>
+
+                    <input
+                        id="facebook"
+                        name="facebook"
+                        type="url"
+                        maxlength="255"
+                        placeholder="https://facebook.com/..."
+                    >
+
+                </div>
+
+
+                <!-- =============================================
+                     INSTAGRAM
+                ============================================== -->
+
+                <div class="field social-field">
+
+                    <label
+                        for="instagram"
+                        class="social-label"
+                    >
+
+                        <span class="social-dot"></span>
+
+                        Instagram
+
+                    </label>
+
+                    <input
+                        id="instagram"
+                        name="instagram"
+                        type="url"
+                        maxlength="255"
+                        placeholder="https://instagram.com/..."
+                    >
+
+                </div>
+
+
+                <!-- =============================================
+                     DESCRIPTION
+                ============================================== -->
+
+                <div class="field full">
+
+                    <label for="description">
+                        Business Requirement / Description
+                    </label>
+
+                    <textarea
+                        id="description"
+                        name="description"
+                        placeholder="Enter business details, requirements, services needed or any additional information..."
+                    ></textarea>
+
+                </div>
+
+
+                <!-- =============================================
+                     LEAD SOURCE
+                ============================================== -->
+
+                <div class="field full select-field">
+
+                    <label for="lead_source">
+                        Lead Source
+                    </label>
+
+                    <select
+                        id="lead_source"
+                        name="lead_source"
+                    >
+
+                        <option value="">
+                            Select lead source
+                        </option>
+
+                        <option value="Advertisement">
+                            Advertisement
+                        </option>
+
+                        <option value="Employee Referral">
+                            Employee Referral
+                        </option>
+
+                        <option value="External Referral">
+                            External Referral
+                        </option>
+
+                        <option value="Partner">
+                            Partner
+                        </option>
+
+                        <option value="Public Relations">
+                            Public Relations
+                        </option>
+
+                        <option value="Seminar - Internal">
+                            Seminar - Internal
+                        </option>
+
+                        <option value="Seminar - Partner">
+                            Seminar - Partner
+                        </option>
+
+                        <option value="Trade Show">
+                            Trade Show
+                        </option>
+
+                        <option value="Web">
+                            Web
+                        </option>
+
+                        <option value="Word of mouth">
+                            Word of mouth
+                        </option>
+
+                        <option value="Website">
+                            Website
+                        </option>
+
+                        <option value="LinkedIn">
+                            LinkedIn
+                        </option>
+
+                        <option value="Cold Call">
+                            Cold Call
+                        </option>
+
+                        <option value="Event">
+                            Event
+                        </option>
+
+                        <option value="WhatsApp">
+                            WhatsApp
+                        </option>
+
+                        <option value="Referral">
+                            Referral
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =================================================
+                 SUBMIT
+            ================================================== -->
+
+            <div class="form-footer">
+
+                <button
+                    type="submit"
+                    class="submit-button"
+                    id="submitButton"
+                >
+
+                    Submit Lead →
+
+                </button>
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+    <script>
 
         /* =====================================================
-           WEBSITE VALIDATION ONLY
+           FORM SUBMISSION
            
-           All other fields are optional.
-           If website is blank, submission continues.
-           If website is entered, it must be a valid URL.
+           IMPORTANT:
+           Every field is optional.
+           
+           We only validate URL fields when the user has
+           entered something into them.
         ===================================================== */
 
-        form.addEventListener(
-            "submit",
-            function (event) {
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
 
-                const website =
+                const form =
                     document.getElementById(
-                        "url"
+                        "leadForm"
                     );
 
 
-                const websiteValue =
-                    website.value.trim();
+                const submitButton =
+                    document.getElementById(
+                        "submitButton"
+                    );
 
 
-                /* ---------------------------------------------
-                   WEBSITE IS OPTIONAL
-                --------------------------------------------- */
+                /* =================================================
+                   OPTIONAL URL VALIDATION
+                ================================================= */
 
-                if (websiteValue !== "") {
+                function validateOptionalURL(
+                    element,
+                    fieldName
+                ) {
+
+                    const value =
+                        element.value.trim();
+
+
+                    /*
+                       Empty URL is completely valid
+                       because the field is optional.
+                    */
+
+                    if (value === "") {
+
+                        return true;
+
+                    }
+
 
                     try {
 
-                        new URL(
-                            websiteValue
-                        );
+                        const url =
+                            new URL(value);
+
+
+                        /*
+                           Require HTTP or HTTPS
+                        */
+
+                        if (
+                            url.protocol !== "http:" &&
+                            url.protocol !== "https:"
+                        ) {
+
+                            throw new Error();
+
+                        }
+
+
+                        return true;
 
                     }
 
                     catch (error) {
 
-                        event.preventDefault();
-
                         alert(
-                            "Please enter a valid website URL."
+                            "Please enter a valid " +
+                            fieldName +
+                            " URL."
                         );
 
-                        website.focus();
+                        element.focus();
 
-                        return;
+                        return false;
 
                     }
 
                 }
 
 
-                /* ---------------------------------------------
-                   SUBMITTING
-                --------------------------------------------- */
+                /* =================================================
+                   SUBMIT EVENT
+                ================================================= */
 
-                submitButton.disabled =
-                    true;
+                form.addEventListener(
+                    "submit",
+                    function (event) {
 
 
-                submitButton.textContent =
-                    "Submitting...";
+                        /*
+                           Website
+                        */
+
+                        const website =
+                            document.getElementById(
+                                "url"
+                            );
+
+
+                        if (
+                            !validateOptionalURL(
+                                website,
+                                "website"
+                            )
+                        ) {
+
+                            event.preventDefault();
+
+                            return;
+
+                        }
+
+
+                        /*
+                           Facebook
+                        */
+
+                        const facebook =
+                            document.getElementById(
+                                "facebook"
+                            );
+
+
+                        if (
+                            !validateOptionalURL(
+                                facebook,
+                                "Facebook"
+                            )
+                        ) {
+
+                            event.preventDefault();
+
+                            return;
+
+                        }
+
+
+                        /*
+                           Instagram
+                        */
+
+                        const instagram =
+                            document.getElementById(
+                                "instagram"
+                            );
+
+
+                        if (
+                            !validateOptionalURL(
+                                instagram,
+                                "Instagram"
+                            )
+                        ) {
+
+                            event.preventDefault();
+
+                            return;
+
+                        }
+
+
+                        /*
+                           Disable button after
+                           successful validation.
+                        */
+
+                        submitButton.disabled =
+                            true;
+
+
+                        submitButton.textContent =
+                            "Submitting...";
+
+                    }
+                );
 
             }
-
         );
 
-    }
-
-);
-
-</script>
+    </script>
 
 
 </body>
