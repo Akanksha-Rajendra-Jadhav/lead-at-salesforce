@@ -2106,6 +2106,7 @@
                     <select
                         id="lead_source"
                         name="lead_source"
+                        onchange="toggleOtherLeadSource()"
                     >
 
                         <option value="">
@@ -2188,6 +2189,24 @@
 
                 </div>
 
+                <!-- OTHER LEAD SOURCE DESCRIPTION -->
+
+                <div class="field full" id="otherLeadSourceDiv" style="display: none;">
+
+                    <label for="00Nf600000nTugv">
+                        Other Lead Source Description
+                    </label>
+
+                    <input
+                        id="00Nf600000nTugv"
+                        name="00Nf600000nTugv"
+                        type="text"
+                        maxlength="255"
+                        placeholder="Please specify the lead source"
+                    >
+
+                </div>
+
 
             </div>
 
@@ -2218,6 +2237,27 @@
 
 
     <script>
+
+        /* =====================================================
+           OTHER LEAD SOURCE
+        ===================================================== */
+
+        function toggleOtherLeadSource() {
+
+            const leadSource = document.getElementById("lead_source");
+            const otherLeadSourceDiv = document.getElementById("otherLeadSourceDiv");
+            const otherLeadSourceInput = document.getElementById("00Nf600000nTugv");
+
+            if (leadSource.value === "Other") {
+                otherLeadSourceDiv.style.display = "block";
+                otherLeadSourceInput.required = true;
+            } else {
+                otherLeadSourceDiv.style.display = "none";
+                otherLeadSourceInput.required = false;
+                otherLeadSourceInput.value = "";
+            }
+        }
+
 
         /* =====================================================
            FORM SUBMISSION
